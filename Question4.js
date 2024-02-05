@@ -1,31 +1,42 @@
-class Message extends ReadableByteStreamController.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            visible: 1
-        };
-    }
-    clickHander = e => {
-        e.preventDefault();
-        this.setState({
-            visible: !this.state.visible
-        });
+import React, { useState } from 'react';
+
+import { createRoot } from 'react-dom/client';
+
+const Message = () => {
+
+    const [isParagraphVisible, setIsParagraphVisible] = useState(false);
+
+    const toggleParagraphVisibility = () => {
+
+        setIsParagraphVisible((prevVisibility) => !prevVisibility);
+
     };
-    render() {
-        return this.state.visible ? (
-            <React.Fragment>
-                <a href="#" onClick={this.clickHander}>Want to buy a new car?</a>
-            </React.Fragment>
-        ) : (
-            <React.Fragment>
-                <a href="#" onClick={this.clickHander}>Want to buy a new car?</a>
-                <p>Call +11 22 33 44 now!</p>
-            </React.Fragment>
-        )
-    }
+
+    return (
+
+        <React.Fragment>
+
+            <a href="#" onClick={toggleParagraphVisibility}>
+
+                Want to buy a new car?
+
+            </a>
+
+            {isParagraphVisible && <p>Call +11 22 33 44 now!</p>}
+
+        </React.Fragment>
+
+    );
+
+};
+
+const rootElement = document.getElementById('root');
+
+if (rootElement) {
+
+    const root = createRoot(rootElement);
+
+    root.render(<Message />);
+
 }
 
-document.body.innerHTML = "<div id='root'></div>";
-
-const rootElement = document.getElementById("root");
-ReactDOM.render(<Message />, rootElement);
