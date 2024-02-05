@@ -15,28 +15,18 @@ const Message = () => {
     return (
 
         <React.Fragment>
-
             <a href="#" onClick={toggleParagraphVisibility}>
-
                 Want to buy a new car?
-
             </a>
-
             {isParagraphVisible && <p>Call +11 22 33 44 now!</p>}
-
         </React.Fragment>
 
     );
 
 };
-
 const rootElement = document.getElementById('root');
-
 if (rootElement) {
-
     const root = createRoot(rootElement);
-
     root.render(<Message />);
-
 }
 
