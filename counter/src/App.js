@@ -2,16 +2,16 @@ import React, { useState } from "react";
 import "./App.css";
 
 const App = () => {
-    
+
     const [counter, setCounter] = useState(0);
 
-   
+
     const handleClick1 = () => {
         // Counter state is incremented
         setCounter(counter + 1);
     };
 
-    // Function is called everytime decrement button is clicked
+
     const handleClick2 = () => {
         // Counter state is decremented
         setCounter(counter - 1);
